@@ -93,6 +93,12 @@ text-align: right;
 }
 
 #houkoku2{
+/* 
+Ⅰ.→1.→1.1.→1.1.1.→1.1.1.1.
+Ⅱ.→1→...
+主に判例報告
+*/
+
   font-family: Arial, "源ノ角ゴシック";font-size:14px; font-weight:300; line-height:1.8em;color:#333;background-color:#fff;
   counter-reset: part;
   p, li, ol{margin: 1em 0px 1.3em;}
@@ -127,7 +133,6 @@ text-align: right;
   }
   h3{
   font-size:1.25em;
-  counter-reset: section;
   counter-reset: sub-section;
   }
   h4{
@@ -195,4 +200,99 @@ text-align: right;
 .meigi{
   font-family: Arial, "源ノ角ゴシック";font-size:14px; font-weight: 300; line-height:1em;color:#333;background-color:#fff;text-align: right;
   }
+}
+
+#kougi{
+/* 
+Ⅰ.→1.→1.1.→1.1.1.→1.1.1.1.
+Ⅱ.→1→...
+主に講義レジュメ
+*/
+
+  font-family: Arial, "源ノ角ゴシック";font-size:14px; font-weight:300; line-height:1.8em;color:#333;background-color:#fff;
+  counter-reset: part;
+  p, li, ol{margin: 1em 0px 1.3em;}
+  ul li{
+    list-style-type: square;
+    ul li {
+      list-style-type: circle;
+    }
+  }
+  ul ol li{list-style: lower-roman;}
+  ol li{list-style: decimal;}
+  blockquote{
+    margin:1em 0px 1.8em;
+    font-size:1em;
+    padding:0 1em;
+    color:#5c5c5c;
+    background-color:#fcfcfc;
+    border-left:4px solid #d6d6d6;
+    blockquote{font-size:0.9em;}
+    p, li{margin: 1em 0px 1em;}
+  }
+  
+  h1, h2, h3, h4, h5, h6{font-weight:300; line-height:1.2em;margin-top:1em;margin-bottom:0;color:#000;}
+  h1 {
+  font-size:1.75em;
+  counter-reset: chapter;
+  border-bottom: 2px solid #333;
+  }
+  h2 {
+  font-size:1.5em;
+  counter-reset: section;
+  }
+  h3{
+  font-size:1.25em;
+  counter-reset: sub-section;
+  }
+  h4{
+  font-size:1.0em;
+  counter-reset: sub-sub-section;
+  }
+  h1::before {
+  counter-increment: part;
+  content: counter(part, upper-roman) ". ";
+  }
+  h2::before {
+  counter-increment: chapter;
+  content: counter(chapter) ". ";
+  }
+  h3::before {
+  counter-increment: section;
+  content: counter(chapter) "."counter(section) ". ";
+  }
+  h4::before {
+  counter-increment: sub-section;
+  content: counter(chapter) "."counter(section) "."counter(sub-section)". ";
+  }
+  h5::before {
+  counter-increment: sub-sub-section;
+  content: counter(chapter) "."counter(section) "."counter(sub-section) "."counter(sub-sub-section)". ";
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse:collapse;
+    border-spacing:0;
+    display:inline;
+    width:90%;
+    overflow:auto;
+    word-break:normal;
+    word-break:keep-all;
+  }
+  table td,table th{border:1px solid #d6d6d6;padding:6px 13px; font-size:0.9em;line-height:1.2em;font-weight:300;}
+  table th{background-color: rgb(248, 248, 246);}
+ em {
+  font-style: normal; 
+  font-weight: 450;
+}
+  strong {
+    font-weight: 400;
+    border-bottom: thin solid #333;
+  }
+.footnotes{
+
+  font-size:0.9em;line-height:1.2em;
+}
 }
